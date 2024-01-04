@@ -7,7 +7,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 
 export default function Favorite({ favs, id, user }) {
-    const [fav, setFav] = useState(favs)
+    const [fav, setFav] = useState(favs || [])
     const router = useRouter()
     const handleFavorite = async (e) => {
         e.preventDefault()
