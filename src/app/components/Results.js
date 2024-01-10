@@ -1,4 +1,3 @@
-import { getHeadlines } from "@/utils/api"
 import Link from 'next/link'
 import {
   Card,
@@ -10,17 +9,9 @@ import {
 } from "@/app/components/ui/card"
 import Favorite from "./Favorite";
 import { cn } from "@/lib/utils";
-import { auth } from "../../lib/auth";
-import {getFavs} from '@/lib/actions'
 
-const Results = async ({ searchParams }) => {
-  const getArticles =  getHeadlines(searchParams.category)
-  const getSession =  auth() 
-
-  const[articles,session] = await Promise.all([getArticles,getSession]) //parallel fetching
-
-  const favs = session?.user ? (await getFavs(session.user.name)).favs : []
-    
+const Results =  ({ articles, favs, session, searchParams }) => {
+  
   const viewstyle = searchParams.view === 'grid' ? 'grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-y-6';
   const cards = articles.map((item) => {
     return (
