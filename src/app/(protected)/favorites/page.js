@@ -6,10 +6,9 @@ import { auth } from '@/lib/auth'
 export default async function UserFavorites({searchParams}) {
   const session =  await auth() 
   const favs = session?.user ? (await getFavs(session.user.name)).favs : []
-
 return (
     <MaxWidthWrapper>
-      <Results articles={favs} favs={favs} session={session} searchParams={searchParams}/>
+      {/* <Results articles={favs} favs={favs} session={session} searchParams={searchParams}/> */}
     </MaxWidthWrapper>
   )
 }

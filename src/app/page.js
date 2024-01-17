@@ -3,7 +3,7 @@ import SearchBox from '@/app/components/SearchBox'
 import Hbuttons from './components/Hbuttons'
 import { Suspense } from 'react'
 import Loading from './components/Loading'
-import ResultsFetcher from './components/ResultsFetcher'
+import Results from './components/Results'
 
 const Home = ({ searchParams }) => {
   return (
@@ -25,7 +25,7 @@ const Home = ({ searchParams }) => {
           <Hbuttons />
 
           <Suspense fallback={<Loading />}>
-            <ResultsFetcher searchParams={searchParams} />
+            <Results searchParams={searchParams} />
           </Suspense>
 
         </MaxWidthWrapper>

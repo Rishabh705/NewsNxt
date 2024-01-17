@@ -16,7 +16,7 @@ const userSchema = new Schema({
         required:true
     },
     favs:{
-        type:[Number],
+        type:[String],
         default:[]
     } 
 })

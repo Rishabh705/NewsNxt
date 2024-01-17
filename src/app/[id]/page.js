@@ -26,7 +26,7 @@ const Detail = async ({ params }) => {
           <p className='mt-3 text-lg max-w-prose text-muted-foreground'>{result.body}</p>
           <div className='flex gap-4 pt-6'>
             <p>Like the article? Click here</p>
-            <Favorite id={params.id} user={session?.user?.name || null} favs={favs}/>
+            <Favorite id={params.id} user={session?.user?.name || null} isFav={favs.includes(params.id)}/>
           </div>
           <p className='mt-6'>See full article at <Link href={result.url}><span className='text-blue-500'>{result.source.title}</span></Link></p>
         </div>
